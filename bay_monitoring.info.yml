@@ -5,23 +5,4 @@ package: Other
 core_version_requirement: ^8.9 || ^9
 dependencies:
   - monitoring:monitoring
-#  - drupal:block
-#  - drupal:block_content
-#  - drupal:content_moderation
-#  - drupal:ckeditor
-#  - drupal:datetime_range
-#  - drupal:dynamic_page_cache
-#  - drupal:entity_embed
-#  - drupal:filter
-#  - drupal:link_field_autocomplete_filter
-#  - drupal:media
   - drupal:node
-#  - drupal:options
-#  - drupal:path
-#  - drupal:taxonomy
-#  - drupal:telephone
-#  - drupal:text
-#  - drupal:user
-#  - drupal:workflows
-#  - drupal:hal
-#  - drupal:token
