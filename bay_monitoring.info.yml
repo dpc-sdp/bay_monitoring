@@ -1,0 +1,8 @@
+name: bay_monitoring
+description: 'Drupal health check module for the Bay hosting platform.'
+type: module
+package: Other
+core_version_requirement: ^8.9 || ^9
+dependencies:
+  - monitoring:monitoring
+  - drupal:node
