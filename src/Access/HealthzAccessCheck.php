@@ -2,9 +2,9 @@
 
 namespace Drupal\bay_monitoring\Access;
 
-use Drupal\Core\Site\Settings;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Routing\Access\AccessInterface;
+use Drupal\Core\Site\Settings;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
