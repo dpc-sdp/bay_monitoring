@@ -2,7 +2,7 @@ name: bay_monitoring
 description: 'Drupal health check module for the Bay hosting platform.'
 type: module
 package: Other
-core_version_requirement: ^9 || 10
+core_version_requirement: ^9 || ^10
 dependencies:
   - monitoring:monitoring
   - drupal:node
