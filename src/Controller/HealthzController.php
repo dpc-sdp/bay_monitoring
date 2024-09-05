@@ -68,7 +68,7 @@ class HealthzController extends ControllerBase {
           'sensor_message' => $resultFailure->getMessage(),
         ]);
       }
-      $response = new CacheableJsonResponse($response);
+      $response = new CacheableJsonResponse($response, 503);
     }
     else {
       $response = new CacheableJsonResponse(['message' => 'All sensors OK!']);
