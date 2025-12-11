@@ -9,20 +9,13 @@
  * Disable dblog_404 monitoring sensor.
  */
 function bay_monitoring_update_10000() {
-  $config_storage = \Drupal::service('config.storage.sync');
-
-  if (!\Drupal::moduleHandler()->moduleExists('monitoring')) {
-    return;
-  }
-
   $config_name = "monitoring.sensor_config.dblog_404";
-  if (!$config_storage->exists($config_name)) {
-    return;
+
+  // Load active config.
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  // If it exists, update it.
+  if ($config) {
+    $config->set('status', FALSE)->save();
   }
-
-  // Load and update the config.
-  $config_data = $config_storage->read($config_name);
-  $config_data['status'] = false;
-  $config_storage->write($config_name, $config_data);
 }
-
