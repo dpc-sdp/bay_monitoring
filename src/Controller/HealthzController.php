@@ -5,13 +5,15 @@ namespace Drupal\bay_monitoring\Controller;
 use Drupal\Core\Cache\CacheableJsonResponse;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\monitoring\Entity\SensorResultDataInterface;
-use Drupal\monitoring\Result\SensorResult;
+use Drupal\monitoring\Result\SensorResultInterface;
 use Drupal\monitoring\SensorRunner;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Monitoring controller.
+ *
+ * @phpstan-consistent-constructor
  */
 class HealthzController extends ControllerBase {
 
@@ -23,10 +25,10 @@ class HealthzController extends ControllerBase {
   protected $sensorRunner;
 
   /**
-   * Constructs a \Drupal\monitoring\Form\SensorDetailForm object.
+   * Constructs a health check controller.
    *
    * @param \Drupal\monitoring\SensorRunner $sensor_runner
-   *   The factory for configuration objects.
+   *   The monitoring sensor runner.
    */
   public function __construct(SensorRunner $sensor_runner) {
     $this->sensorRunner = $sensor_runner;
@@ -51,7 +53,7 @@ class HealthzController extends ControllerBase {
     // Results may be cached from sensor runner.
     $results = $this->sensorRunner->runSensors();
 
-    $resultFailures = array_filter($results, function (SensorResult $result): bool {
+    $resultFailures = array_filter($results, function (SensorResultInterface $result): bool {
       return $result->getStatus() === SensorResultDataInterface::STATUS_CRITICAL;
     });
 

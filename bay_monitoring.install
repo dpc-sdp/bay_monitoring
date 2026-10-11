@@ -15,7 +15,7 @@ function bay_monitoring_update_10000() {
   $config = \Drupal::configFactory()->getEditable($config_name);
 
   // If it exists, update it.
-  if ($config) {
+  if (!$config->isNew()) {
     $config->set('status', FALSE)->save();
   }
 }

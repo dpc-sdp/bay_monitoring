@@ -4,7 +4,8 @@
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
   "require": {
-    "drupal/monitoring": "^1.13"
+    "drupal/core": "^10.6 || ^11",
+    "drupal/monitoring": "^1.22"
   },
   "repositories": {
     "drupal": {
